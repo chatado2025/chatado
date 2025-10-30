@@ -1,0 +1,67 @@
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChatAdo</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Ably -->
+  <script src="https://cdn.ably.com/lib/ably.min-1.js"></script>
+</head>
+<body>
+
+  <!-- ==== LOGIN ==== -->
+  <div id="loginScreen" class="screen login-screen">
+    <div class="login-card">
+      <h1><i class="fa-solid fa-comments"></i> ChatAdo</h1>
+      <p>Converse em tempo real com seus amigos</p>
+      <input type="text" id="username" placeholder="Digite seu nome..." autocomplete="off" />
+      <button id="enterChat"><i class="fa-solid fa-door-open"></i> Entrar</button>
+    </div>
+  </div>
+
+  <!-- ==== CHAT ==== -->
+  <div id="chatScreen" class="screen" style="display:none;">
+
+    <!-- Menu hamburguer (apenas mobile) -->
+    <div class="menu-hamburger">
+      <i class="fa-solid fa-user"></i>
+    </div>
+
+    <div id="chatContainer">
+      <!-- Lista de contatos -->
+      <div id="contactsList">
+        <h3><i class="fa-solid fa-users"></i> Contatos</h3>
+        <ul id="contacts"></ul>
+      </div>
+
+      <!-- Chat principal -->
+      <div id="chatMain">
+        <div class="chat-header">
+          <h2 id="chatTitle"><i class="fa-solid fa-comments"></i> ChatAdo</h2>
+        </div>
+
+        <div id="messages"></div>
+        <div id="typingIndicator"></div>
+
+        <div id="inputArea" style="display:none;">
+          <!--<button id="attachFileBtn" title="Anexar arquivo"><i class="fa-solid fa-paperclip"></i>2</button>-->
+          <input type="file" id="fileInput" style="display:none;" />
+          <input type="text" id="messageInput" placeholder="Digite sua mensagem..." autocomplete="off" />
+          <button id="sendMessage"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <audio id="notifySound" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" preload="auto"></audio>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
